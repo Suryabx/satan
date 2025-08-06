@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satan Encryptor - Download</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #212529; /* Dark background */
+            color: #e9ecef; /* Light text */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#343a40] p-4 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/satan.png" alt="Satan Encryptor Logo" class="h-10 w-10 mr-3 rounded-full shadow-md">
+                <a href="index.html" class="text-xl font-bold text-white">Satan Encryptor</a>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html#home" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Home</a>
+                <a href="index.html#features" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Features</a>
+                <a href="index.html#security-insights" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Security Insights</a>
+                <a href="download.html" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Download</a>
+                <a href="index.html#contact" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-[#495057] transition-colors duration-300">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[#495057] rounded-lg shadow-md p-4 space-y-2 mx-auto max-w-sm">
+            <a href="index.html#home" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Home</a>
+            <a href="index.html#features" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Features</a>
+            <a href="index.html#security-insights" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Security Insights</a>
+            <a href="download.html" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Download</a>
+            <a href="index.html#contact" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section class="bg-[#2c3034] rounded-xl shadow-xl p-8 md:p-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#f8f9fa] mb-8">Download Satan Encryptor</h2>
+            <p class="text-lg text-[#e9ecef] mb-10 max-w-2xl mx-auto">
+                Get the latest version of Satan Encryptor for your operating system.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <!-- Windows Download -->
+                <a href="files/satan.exe" download class="inline-flex items-center bg-[#6c757d] hover:bg-[#495057] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <img src="images/windows.png" alt="Windows Icon" class="w-6 h-6 mr-3">
+                    Download for Windows
+                </a>
+
+                <!-- macOS Download (Placeholder) -->
+                <a href="#" class="inline-flex items-center bg-[#495057] hover:bg-[#6c757d] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 opacity-70 cursor-not-allowed">
+                    <img src="images/mac.png" alt="macOS Icon" class="w-6 h-6 mr-3">
+                    Download for macOS (Coming Soon)
+                </a>
+
+                <!-- Linux Download (Placeholder) -->
+                <a href="#" class="inline-flex items-center bg-[#495057] hover:bg-[#6c757d] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 opacity-70 cursor-not-allowed">
+                    <img src="images/linux.png" alt="Linux Icon" class="w-6 h-6 mr-3">
+                    Download for Linux (Coming Soon)
+                </a>
+            </div>
+
+            <p class="text-md text-[#6c757d] mt-12">Version: 2.1.1</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#343a40] p-6 text-center text-[#e9ecef] text-sm rounded-t-lg shadow-lg mt-8">
+        <p>&copy; 2025 Satan Encryptor. All rights reserved.</p>
+        <p>Designed by <a href="https://github.com/Suryabx" target="_blank" class="text-[#6c757d] hover:underline">Suryabx</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

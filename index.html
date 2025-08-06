@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satan Encryptor - Secure Your Digital Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #212529; /* Dark background */
+            color: #e9ecef; /* Light text */
+        }
+        /* Spinner styles for API loading */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#343a40] p-4 shadow-lg rounded-b-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo image -->
+                <img src="images/satan.png" alt="Satan Encryptor Logo" class="h-10 w-10 mr-3 rounded-full shadow-md">
+                <a href="#home" class="text-xl font-bold text-white">Satan Encryptor</a>
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Home</a>
+                <a href="#features" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Features</a>
+                <a href="#security-insights" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Security Insights</a>
+                <a href="download.html" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Download</a>
+                <a href="#contact" class="text-[#e9ecef] hover:text-[#f8f9fa] transition-colors duration-300 px-3 py-2 rounded-md">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-[#495057] transition-colors duration-300">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[#495057] rounded-lg shadow-md p-4 space-y-2 mx-auto max-w-sm">
+            <a href="#home" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Home</a>
+            <a href="#features" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Features</a>
+            <a href="#security-insights" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Security Insights</a>
+            <a href="download.html" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Download</a>
+            <a href="#contact" class="block text-white hover:bg-[#6c757d] p-2 rounded-md transition-colors duration-300">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Hero Section (Home) -->
+        <section id="home" class="text-center py-16 md:py-24 bg-[#2c3034] rounded-xl shadow-xl mb-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#f8f9fa] mb-6 leading-tight">Secure Your Digital Life with <span class="text-[#6c757d]">Satan Encryptor</span></h1>
+            <p class="text-lg md:text-xl text-[#e9ecef] mb-10 max-w-3xl mx-auto">
+                Satan Encryptor provides robust, cross-platform encryption solutions to protect your sensitive files and folders from unauthorized access. Take control of your privacy today.
+            </p>
+            <a href="download.html" class="inline-block bg-[#6c757d] hover:bg-[#495057] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                Download Now
+            </a>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="bg-[#2c3034] rounded-xl shadow-xl p-8 md:p-12 mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#f8f9fa] mb-8 text-center">Key Features of Satan Encryptor</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1: Strong Encryption Algorithms -->
+                <div class="bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🔒</span> <!-- Lock emoji for encryption -->
+                        <h3 class="text-xl font-semibold text-[#f8f9fa]">Strong Encryption Algorithms</h3>
+                    </div>
+                    <p class="text-[#e9ecef]">Utilizes industry-leading encryption standards like AES-256-CBC and ChaCha20-Poly1305 to ensure the highest level of data security.</p>
+                </div>
+
+                <!-- Feature 2: File & Folder Encryption -->
+                <div class="bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">📁</span> <!-- Folder emoji -->
+                        <h3 class="text-xl font-semibold text-[#f8f9fa]">File & Folder Encryption</h3>
+                    </div>
+                    <p class="text-[#e9ecef]">Encrypt individual files or entire folders with ease, protecting all your valuable data in one go.</p>
+                </div>
+
+                <!-- Feature 3: Key Management -->
+                <div class="bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🔑</span> <!-- Key emoji -->
+                        <h3 class="text-xl font-semibold text-[#f8f9fa]">Key Management</h3>
+                    </div>
+                    <p class="text-[#e9ecef]">Generate, manage, and securely store your encryption keys, giving you full control over your encrypted data.</p>
+                </div>
+
+                <!-- Feature 4: Automatic Metadata -->
+                <div class="bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">⚙️</span> <!-- Gear emoji -->
+                        <h3 class="text-xl font-semibold text-[#f8f9fa]">Automatic Metadata</h3>
+                    </div>
+                    <p class="text-[#e9ecef]">Encryption settings are automatically saved with your encrypted files, simplifying decryption and ensuring consistency.</p>
+                </div>
+
+                <!-- Feature 5: Secure File Shredding -->
+                <div class="bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🗑️</span> <!-- Wastebasket emoji -->
+                        <h3 class="text-xl font-semibold text-[#f8f9fa]">Secure File Shredding</h3>
+                    </div>
+                    <p class="text-[#e9ecef]">Permanently overwrite sensitive files for secure data disposal, preventing recovery by forensic tools.</p>
+                </div>
+
+                <!-- Feature 6: Cross-Platform -->
+                <div class="bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">💻</span> <!-- Laptop emoji -->
+                        <h3 class="text-xl font-semibold text-[#f8f9fa]">Cross-Platform Compatibility</h3>
+                    </div>
+                    <p class="text-[#e9ecef]">Available on Windows, macOS, and Linux, providing consistent security across all your devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Insights Section -->
+        <section id="security-insights" class="bg-[#2c3034] rounded-xl shadow-xl p-8 md:p-12 text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#f8f9fa] mb-8">Security Insights ✨</h2>
+            <p class="text-lg text-[#e9ecef] mb-8 max-w-2xl mx-auto">
+                Gain valuable knowledge on digital security and data encryption best practices. Click the button below to get actionable tips generated by the Gemini AI.
+            </p>
+
+            <button id="generateTipsButton" class="inline-flex items-center justify-center bg-[#6c757d] hover:bg-[#495057] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#6c757d] focus:ring-opacity-50">
+                <span id="buttonText">Generate Security Tips ✨</span>
+                <div id="spinner" class="spinner hidden ml-3"></div>
+            </button>
+
+            <div id="tipsOutput" class="mt-10 p-6 bg-[#343a40] rounded-lg shadow-md text-left hidden">
+                <h3 class="text-2xl font-semibold text-[#f8f9fa] mb-4">Your Security Tips:</h3>
+                <div id="tipsContent" class="text-[#e9ecef] leading-relaxed">
+                    <!-- Tips will be inserted here -->
+                </div>
+                <div id="errorMessage" class="text-red-400 mt-4 hidden"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-[#2c3034] rounded-xl shadow-xl p-8 md:p-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#f8f9fa] mb-8">Contact Us</h2>
+            <p class="text-lg text-[#e9ecef] mb-10 max-w-2xl mx-auto">
+                Have questions or feedback? Feel free to reach out to the developer!
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <!-- GitHub Link -->
+                <a href="https://github.com/Suryabx" target="_blank" class="flex flex-col items-center bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+                    <img src="images/github.png" alt="GitHub Icon" class="w-20 h-20 mb-4 rounded-full">
+                    <span class="text-xl font-semibold text-[#f8f9fa]">GitHub Profile</span>
+                    <span class="text-[#e9ecef] text-sm mt-2">Suryabx</span>
+                </a>
+
+                <!-- Email Link -->
+                <a href="mailto:myselfsuryaaz@gmail.com" class="flex flex-col items-center bg-[#343a40] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+                    <img src="images/email.png" alt="Email Icon" class="w-20 h-20 mb-4 rounded-full">
+                    <span class="text-xl font-semibold text-[#f8f9fa]">Send an Email</span>
+                    <span class="text-[#e9ecef] text-sm mt-2">myselfsuryaaz@gmail.com</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#343a40] p-6 text-center text-[#e9ecef] text-sm rounded-t-lg shadow-lg mt-8">
+        <p>&copy; 2025 Satan Encryptor. All rights reserved.</p>
+        <p>Designed by <a href="https://github.com/Suryabx" target="_blank" class="text-[#6c757d] hover:underline">Suryabx</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gemini API Integration (from Security Insights section)
+        document.getElementById('generateTipsButton').addEventListener('click', async function() {
+            const button = this;
+            const buttonText = document.getElementById('buttonText');
+            const spinner = document.getElementById('spinner');
+            const tipsOutput = document.getElementById('tipsOutput');
+            const tipsContent = document.getElementById('tipsContent');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Show loading state
+            button.disabled = true;
+            buttonText.textContent = 'Generating...';
+            spinner.classList.remove('hidden');
+            tipsOutput.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            tipsContent.innerHTML = ''; // Clear previous tips
+
+            const prompt = "Generate 5 concise and actionable tips for digital security and data encryption best practices. Format them as a numbered list.";
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Canvas will automatically provide this at runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            let retries = 0;
+            const maxRetries = 5;
+            const baseDelay = 1000; // 1 second
+
+            while (retries < maxRetries) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        // Handle HTTP errors
+                        if (response.status === 429) { // Too Many Requests
+                            retries++;
+                            const delay = baseDelay * Math.pow(2, retries - 1);
+                            await new Promise(res => setTimeout(res, delay));
+                            continue; // Retry
+                        } else {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                    }
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        tipsContent.innerHTML = text.replace(/\n/g, '<br>'); // Display newlines as breaks
+                        tipsOutput.classList.remove('hidden');
+                    } else {
+                        errorMessage.textContent = 'Failed to generate tips. Unexpected API response structure.';
+                        errorMessage.classList.remove('hidden');
+                    }
+                    break; // Exit loop on success
+                } catch (error) {
+                    console.error('Error fetching security tips:', error);
+                    errorMessage.textContent = `Failed to generate tips: ${error.message}. Please try again.`;
+                    errorMessage.classList.remove('hidden');
+                    break; // Exit loop on error that is not 429
+                } finally {
+                    // Hide loading state
+                    button.disabled = false;
+                    buttonText.textContent = 'Generate Security Tips ✨';
+                    spinner.classList.add('hidden');
+                }
+            }
+
+            if (retries === maxRetries) {
+                errorMessage.textContent = 'Failed to generate tips after multiple retries. Please try again later.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
