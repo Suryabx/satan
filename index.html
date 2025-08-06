@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- AOS Library for Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* Define CSS variables for light and dark themes */
         :root {
@@ -184,6 +186,15 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add more shadow */
             background-color: var(--secondary-bg); /* Change background on hover */
         }
+
+        /* Mobile specific adjustments for header */
+        @media (max-width: 768px) {
+            header {
+                max-width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -223,21 +234,21 @@
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8">
-        <section id="home" class="text-center py-16 md:py-24 bg-[var(--secondary-bg)] rounded-xl shadow-xl mb-12">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-[var(--light-accent)] mb-6 leading-tight">Secure Your Digital Life with <span class="text-[var(--accent-color)]">Satan Encryptor</span></h1>
+        <section id="home" class="text-center py-16 md:py-24 bg-[var(--secondary-bg)] rounded-xl shadow-xl mb-12" data-aos="fade-up">
+            <h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold text-[var(--light-accent)] mb-6 leading-tight">Secure Your Digital Life with <span class="text-[var(--accent-color)]">Satan Encryptor</span></h1>
             <p class="text-lg md:text-xl text-[var(--text-color)] mb-10 max-w-3xl mx-auto">
                 Satan Encryptor provides robust, cross-platform encryption solutions to protect your sensitive files and folders from unauthorized access. Take control of your privacy today.
             </p>
-            <a href="download.html" class="inline-block bg-[var(--accent-color)] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hero-button">
+            <a href="download.html" class="inline-block bg-[var(--accent-color)] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hero-button" data-aos="zoom-in" data-aos-delay="200">
                 Download Now
             </a>
         </section>
 
-        <section id="features" class="bg-[var(--secondary-bg)] rounded-xl shadow-xl p-8 md:p-12 mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-[var(--light-accent)] mb-8 text-center">Key Features of Satan Encryptor</h2>
+        <section id="features" class="bg-[var(--secondary-bg)] rounded-xl shadow-xl p-8 md:p-12 mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--light-accent)] mb-8 text-center" data-aos="fade-up">Key Features of Satan Encryptor</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-6 card-hover">
+                <div class="p-6 card-hover" data-aos="fade-right">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-lock text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Strong Encryption Algorithms</h3>
@@ -245,7 +256,7 @@
                     <p class="text-[var(--text-color)]">Utilizes industry-leading encryption standards like AES-256-CBC and ChaCha20-Poly1305 to ensure the highest level of data security.</p>
                 </div>
 
-                <div class="p-6 card-hover">
+                <div class="p-6 card-hover" data-aos="fade-up">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-folder-open text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">File & Folder Encryption</h3>
@@ -253,7 +264,7 @@
                     <p class="text-[var(--text-color)]">Encrypt individual files or entire folders with ease, protecting all your valuable data in one go.</p>
                 </div>
 
-                <div class="p-6 card-hover">
+                <div class="p-6 card-hover" data-aos="fade-left">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-key text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Key Management</h3>
@@ -261,7 +272,7 @@
                     <p class="text-[var(--text-color)]">Generate, manage, and securely store your encryption keys, giving you full control over your encrypted data.</p>
                 </div>
 
-                <div class="p-6 card-hover">
+                <div class="p-6 card-hover" data-aos="fade-right" data-aos-delay="100">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-gear text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Automatic Metadata</h3>
@@ -269,7 +280,7 @@
                     <p class="text-[var(--text-color)]">Encryption settings are automatically saved with your encrypted files, simplifying decryption and ensuring consistency.</p>
                 </div>
 
-                <div class="p-6 card-hover">
+                <div class="p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-trash-can text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Secure File Shredding</h3>
@@ -277,7 +288,7 @@
                     <p class="text-[var(--text-color)]">Permanently overwrite sensitive files for secure data disposal, preventing recovery by forensic tools.</p>
                 </div>
 
-                <div class="p-6 card-hover">
+                <div class="p-6 card-hover" data-aos="fade-left" data-aos-delay="100">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-laptop text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Cross-Platform Compatibility</h3>
@@ -287,20 +298,20 @@
             </div>
         </section>
 
-        <section id="contact" class="bg-[var(--secondary-bg)] rounded-xl shadow-xl p-8 md:p-12 text-center">
+        <section id="contact" class="bg-[var(--secondary-bg)] rounded-xl shadow-xl p-8 md:p-12 text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold text-[var(--light-accent)] mb-8">Contact Us</h2>
             <p class="text-lg text-[var(--text-color)] mb-10 max-w-2xl mx-auto">
                 Have questions or feedback? Feel free to reach out to the developer!
             </p>
 
             <div class="flex flex-col md:flex-row justify-center items-center gap-8">
-                <a href="https://github.com/Suryabx" target="_blank" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md contact-icon-hover">
+                <a href="https://github.com/Suryabx" target="_blank" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md contact-icon-hover" data-aos="zoom-in-right">
                     <img src="images/github.png" alt="GitHub Icon" class="w-20 h-20 mb-4 rounded-full">
                     <span class="text-xl font-semibold text-[var(--light-accent)]">GitHub Profile</span>
                     <span class="text-[var(--text-color)] text-sm mt-2">Suryabx</span>
                 </a>
 
-                <a href="mailto:myselfsuryaaz@gmail.com" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md contact-icon-hover">
+                <a href="mailto:myselfsuryaaz@gmail.com" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md contact-icon-hover" data-aos="zoom-in-left">
                     <img src="images/email.png" alt="Email Icon" class="w-20 h-20 mb-4 rounded-full">
                     <span class="text-xl font-semibold text-[var(--light-accent)]">Send an Email</span>
                     <span class="text-[var(--text-color)] text-sm mt-2">myselfsuryaaz@gmail.com</span>
@@ -314,7 +325,22 @@
         <p>Designed by <a href="https://github.com/Suryabx" target="_blank" class="text-[var(--accent-color)] hover:underline">Suryabx, Abishek Raj PR</a></p>
     </footer>
 
+    <!-- Back to top button -->
+    <button id="backToTopBtn" class="fixed bottom-8 right-8 bg-[var(--accent-color)] text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 z-50">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        window.addEventListener('load', () => {
+            AOS.init({
+                duration: 800,
+                once: true, // Only animate once on scroll down
+            });
+        });
+
         // JavaScript for mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -365,11 +391,21 @@
             const currentTheme = body.getAttribute('data-theme');
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
+
+        // Back to top button logic
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.opacity = '1';
+            } else {
+                backToTopBtn.style.opacity = '0';
+            }
+        };
+
+        backToTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
