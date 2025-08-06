@@ -7,25 +7,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Updated font to Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
+        /* Define CSS variables for light and dark themes */
         :root {
             --primary-bg-light: #f8f9fa;
             --secondary-bg-light: #e9ecef;
             --card-bg-light: #ffffff;
             --text-color-light: #212529;
-            --accent-color-light: #495057;
-            --light-accent-light: #2c3034;
+            --accent-color-light: #495057; /* Darker accent for light mode */
+            --light-accent-light: #2c3034; /* Even darker for headings in light mode */
 
             --primary-bg-dark: #212529;
             --secondary-bg-dark: #2c3034;
             --card-bg-dark: #343a40;
             --text-color-dark: #e9ecef;
-            --accent-color-dark: #6c757d;
-            --light-accent-dark: #f8f9fa;
+            --accent-color-dark: #6c757d; /* Lighter accent for dark mode */
+            --light-accent-dark: #f8f9fa; /* Even lighter for headings in dark mode */
 
+            /* Default to dark theme variables */
             --primary-bg: var(--primary-bg-dark);
             --secondary-bg: var(--secondary-bg-dark);
             --card-bg: var(--card-bg-dark);
@@ -34,6 +36,7 @@
             --light-accent: var(--light-accent-dark);
         }
 
+        /* Apply light theme variables when data-theme is 'light' */
         [data-theme="light"] {
             --primary-bg: var(--primary-bg-light);
             --secondary-bg: var(--secondary-bg-light);
@@ -43,7 +46,7 @@
             --light-accent: var(--light-accent-light);
         }
 
-        /* Changed font-family to Roboto */
+        /* Base body styles */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--primary-bg);
@@ -62,8 +65,25 @@
         }
 
         /* Header Navigation Hover Effect */
-        .nav-link:hover {
-            color: var(--accent-color);
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px; /* Space for the underline */
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         /* Hero Button Animation */
@@ -72,12 +92,13 @@
             z-index: 1;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
 
         .hero-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background-color: var(--light-accent); /* Change background on hover */
         }
 
         .hero-button:before {
@@ -99,18 +120,37 @@
             transform-origin: left;
         }
 
-        /* Card Hover Animation */
+        /* Card Hover Animation (Neumorphic-inspired) */
         .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--card-bg);
+            border-radius: 0.5rem; /* Tailwind's rounded-lg */
+            box-shadow: 
+                5px 5px 10px rgba(0, 0, 0, 0.2), 
+                -5px -5px 10px rgba(255, 255, 255, 0.05); /* Darker shadow for dark mode */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        [data-theme="light"] .card-hover {
+            box-shadow: 
+                5px 5px 10px rgba(0, 0, 0, 0.1), 
+                -5px -5px 10px rgba(255, 255, 255, 0.8); /* Lighter shadow for light mode */
         }
 
         .card-hover:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            background-color: var(--card-bg);
+            box-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.3), 
+                -8px -8px 20px rgba(255, 255, 255, 0.1); /* Enhanced shadow on hover */
+            background-color: var(--secondary-bg); /* Subtle background change on hover */
         }
 
-        /* Spinner styles for API loading */
+        [data-theme="light"] .card-hover:hover {
+            box-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.2), 
+                -8px -8px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Spinner styles for API loading (if applicable) */
         .spinner {
             border: 4px solid rgba(255, 255, 255, 0.3);
             border-top: 4px solid var(--accent-color);
@@ -126,23 +166,23 @@
 
         /* Header glowing effect on hover/focus */
         header {
-            transition: box-shadow 0.3s ease-in-out;
+            transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
         }
 
         header:hover,
         header:focus-within {
-            box-shadow: 0 0 20px 5px rgba(108, 117, 125, 0.7); /* Adjust color and spread as needed */
+            box-shadow: 0 0 25px 8px rgba(108, 117, 125, 0.7); /* More pronounced glow */
         }
 
-        /* Glowing effect for navigation links and buttons text on hover/focus */
-        .nav-link:hover,
-        .nav-link:focus,
-        .hero-button:hover,
-        .hero-button:focus,
-        #generateTipsButton:hover,
-        #generateTipsButton:focus {
-            text-shadow: 0 0 8px var(--accent-color); /* Subtle glow */
-            transition: text-shadow 0.3s ease-in-out;
+        /* Contact icon hover effect */
+        .contact-icon-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .contact-icon-hover:hover {
+            transform: scale(1.05); /* Slightly enlarge */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add more shadow */
+            background-color: var(--secondary-bg); /* Change background on hover */
         }
     </style>
 </head>
@@ -188,7 +228,7 @@
             <p class="text-lg md:text-xl text-[var(--text-color)] mb-10 max-w-3xl mx-auto">
                 Satan Encryptor provides robust, cross-platform encryption solutions to protect your sensitive files and folders from unauthorized access. Take control of your privacy today.
             </p>
-            <a href="download.html" class="inline-block bg-[var(--accent-color)] hover:bg-[var(--light-accent)] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hero-button">
+            <a href="download.html" class="inline-block bg-[var(--accent-color)] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hero-button">
                 Download Now
             </a>
         </section>
@@ -197,7 +237,7 @@
             <h2 class="text-3xl md:text-4xl font-bold text-[var(--light-accent)] mb-8 text-center">Key Features of Satan Encryptor</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <div class="p-6 card-hover">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-lock text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Strong Encryption Algorithms</h3>
@@ -205,7 +245,7 @@
                     <p class="text-[var(--text-color)]">Utilizes industry-leading encryption standards like AES-256-CBC and ChaCha20-Poly1305 to ensure the highest level of data security.</p>
                 </div>
 
-                <div class="bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <div class="p-6 card-hover">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-folder-open text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">File & Folder Encryption</h3>
@@ -213,7 +253,7 @@
                     <p class="text-[var(--text-color)]">Encrypt individual files or entire folders with ease, protecting all your valuable data in one go.</p>
                 </div>
 
-                <div class="bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <div class="p-6 card-hover">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-key text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Key Management</h3>
@@ -221,7 +261,7 @@
                     <p class="text-[var(--text-color)]">Generate, manage, and securely store your encryption keys, giving you full control over your encrypted data.</p>
                 </div>
 
-                <div class="bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <div class="p-6 card-hover">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-gear text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Automatic Metadata</h3>
@@ -229,7 +269,7 @@
                     <p class="text-[var(--text-color)]">Encryption settings are automatically saved with your encrypted files, simplifying decryption and ensuring consistency.</p>
                 </div>
 
-                <div class="bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <div class="p-6 card-hover">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-trash-can text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Secure File Shredding</h3>
@@ -237,7 +277,7 @@
                     <p class="text-[var(--text-color)]">Permanently overwrite sensitive files for secure data disposal, preventing recovery by forensic tools.</p>
                 </div>
 
-                <div class="bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <div class="p-6 card-hover">
                     <div class="flex items-center mb-4">
                         <i class="fa-solid fa-laptop text-3xl text-[var(--accent-color)] mr-4"></i>
                         <h3 class="text-xl font-semibold text-[var(--light-accent)]">Cross-Platform Compatibility</h3>
@@ -254,13 +294,13 @@
             </p>
 
             <div class="flex flex-col md:flex-row justify-center items-center gap-8">
-                <a href="https://github.com/Suryabx" target="_blank" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <a href="https://github.com/Suryabx" target="_blank" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md contact-icon-hover">
                     <img src="images/github.png" alt="GitHub Icon" class="w-20 h-20 mb-4 rounded-full">
                     <span class="text-xl font-semibold text-[var(--light-accent)]">GitHub Profile</span>
                     <span class="text-[var(--text-color)] text-sm mt-2">Suryabx</span>
                 </a>
 
-                <a href="mailto:myselfsuryaaz@gmail.com" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md card-hover">
+                <a href="mailto:myselfsuryaaz@gmail.com" class="flex flex-col items-center bg-[var(--card-bg)] p-6 rounded-lg shadow-md contact-icon-hover">
                     <img src="images/email.png" alt="Email Icon" class="w-20 h-20 mb-4 rounded-full">
                     <span class="text-xl font-semibold text-[var(--light-accent)]">Send an Email</span>
                     <span class="text-[var(--text-color)] text-sm mt-2">myselfsuryaaz@gmail.com</span>
@@ -328,5 +368,7 @@
     </script>
 </body>
 </html>
+
+
 
 
