@@ -6,10 +6,10 @@
     <title>Satan Encryptor - Download</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Updated font to Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* Define CSS variables for light and dark themes */
         :root {
@@ -17,15 +17,15 @@
             --secondary-bg-light: #e9ecef;
             --card-bg-light: #ffffff;
             --text-color-light: #212529;
-            --accent-color-light: #495057; /* Darker accent for light mode */
-            --light-accent-light: #2c3034; /* Even darker for headings in light mode */
+            --accent-color-light: #495057;
+            --light-accent-light: #2c3034;
 
             --primary-bg-dark: #212529;
             --secondary-bg-dark: #2c3034;
             --card-bg-dark: #343a40;
             --text-color-dark: #e9ecef;
-            --accent-color-dark: #6c757d; /* Lighter accent for dark mode */
-            --light-accent-dark: #f8f9fa; /* Even lighter for headings in dark mode */
+            --accent-color-dark: #6c757d;
+            --light-accent-dark: #f8f9fa;
 
             /* Default to dark theme variables */
             --primary-bg: var(--primary-bg-dark);
@@ -59,7 +59,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Global transitions for smooth animations */
+        /* General transitions for smooth animations */
         * {
             transition: all 0.3s ease-in-out;
         }
@@ -67,7 +67,7 @@
         /* Header Navigation Hover Effect */
         .nav-link {
             position: relative;
-            padding-bottom: 4px; /* Space for the underline */
+            padding-bottom: 4px;
         }
 
         .nav-link::after {
@@ -85,8 +85,7 @@
             width: 100%;
             left: 0;
         }
-
-        /* Download Button Animation */
+        
         .download-button {
             position: relative;
             z-index: 1;
@@ -98,7 +97,7 @@
         .download-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            background-color: var(--light-accent); /* Change background on hover */
+            background-color: var(--light-accent);
         }
 
         .download-button::before {
@@ -125,9 +124,9 @@
             cursor: not-allowed;
             opacity: 0.5;
             filter: grayscale(100%);
-            pointer-events: none; /* Disable click events */
-            background-color: var(--card-bg) !important; /* Override background */
-            color: var(--text-color) !important; /* Override text color */
+            pointer-events: none;
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
         }
 
         /* Header glowing effect on hover/focus */
@@ -137,7 +136,16 @@
 
         header:hover,
         header:focus-within {
-            box-shadow: 0 0 25px 8px rgba(108, 117, 125, 0.7); /* More pronounced glow */
+            box-shadow: 0 0 25px 8px rgba(108, 117, 125, 0.7);
+        }
+        
+        /* Mobile specific adjustments for header */
+        @media (max-width: 768px) {
+            header {
+                max-width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
         }
     </style>
 </head>
@@ -150,10 +158,10 @@
                 <a href="index.html" class="text-xl font-bold text-[var(--text-color)]">Satan Encryptor</a>
             </div>
             <nav class="hidden md:flex space-x-6 items-center">
-                <a href="index.html#home" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Home</a>
-                <a href="index.html#features" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Features</a>
+                <a href="home.html" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Home</a>
+                <a href="features.html" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Features</a>
                 <a href="download.html" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Download</a>
-                <a href="index.html#contact" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Contact</a>
+                <a href="contact.html" class="text-[var(--text-color)] nav-link transition-colors duration-300 px-3 py-2">Contact</a>
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-[var(--secondary-bg)] transition-colors duration-300">
                     <i id="theme-icon" class="fa-solid fa-moon text-[var(--text-color)] text-lg"></i>
                 </button>
@@ -170,38 +178,39 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[var(--secondary-bg)] rounded-lg shadow-md p-4 space-y-2 mx-auto max-w-sm">
-            <a href="index.html#home" class="block text-[var(--text-color)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Home</a>
-            <a href="index.html#features" class="block text-[var(--text-color)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Features</a>
+            <a href="home.html" class="block text-[var(--text-color)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Home</a>
+            <a href="features.html" class="block text-[var(--text-color)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Features</a>
             <a href="download.html" class="block text-[var(--text-color)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Download</a>
-            <a href="index.html#contact" class="block text-[var(--card-bg)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Contact</a>
+            <a href="whatsnew.html" class="block text-[var(--text-color)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">What's New</a>
+            <a href="contact.html" class="block text-[var(--card-bg)] hover:bg-[var(--card-bg)] p-2 rounded-md transition-colors duration-300">Contact</a>
         </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8">
-        <section class="bg-[var(--secondary-bg)] rounded-xl shadow-xl p-8 md:p-12 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-[var(--light-accent)] mb-8">Download Satan Encryptor</h2>
-            <p class="text-lg text-[var(--text-color)] mb-10 max-w-2xl mx-auto">
+        <section class="bg-[var(--secondary-bg)] rounded-xl shadow-xl p-8 md:p-12 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--light-accent)] mb-8" data-aos="zoom-in">Download Satan Encryptor</h2>
+            <p class="text-lg text-[var(--text-color)] mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                 Get the latest version of Satan Encryptor for your operating system.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <a href="files/satan.exe" download class="download-button inline-flex items-center justify-center bg-[var(--accent-color)] text-white font-bold py-4 px-8 rounded-full">
+                <a href="files/satan.exe" download class="download-button inline-flex items-center justify-center bg-[var(--accent-color)] text-white font-bold py-4 px-8 rounded-full" data-aos="fade-right">
                     <i class="fa-brands fa-windows text-2xl mr-3"></i>
                     Download for Windows
                 </a>
 
-                <div class="download-button inline-flex items-center justify-center bg-[var(--card-bg)] text-white font-bold py-4 px-8 rounded-full coming-soon-button">
+                <div class="download-button inline-flex items-center justify-center bg-[var(--card-bg)] text-white font-bold py-4 px-8 rounded-full coming-soon-button" data-aos="fade-up">
                     <i class="fa-brands fa-apple text-2xl mr-3"></i>
                     Download for macOS (Coming Soon)
                 </div>
 
-                <div class="download-button inline-flex items-center justify-center bg-[var(--card-bg)] text-white font-bold py-4 px-8 rounded-full coming-soon-button">
+                <div class="download-button inline-flex items-center justify-center bg-[var(--card-bg)] text-white font-bold py-4 px-8 rounded-full coming-soon-button" data-aos="fade-left">
                     <i class="fa-brands fa-linux text-2xl mr-3"></i>
                     Download for Linux (Coming Soon)
                 </div>
             </div>
 
-            <p class="text-md text-[var(--accent-color)] mt-12">Version: 2.1.1</p>
+            <p class="text-md text-[var(--accent-color)] mt-12" data-aos="fade-up">Version: 2.1.1</p>
         </section>
     </main>
 
@@ -210,21 +219,29 @@
         <p>Designed by <a href="https://github.com/Suryabx" target="_blank" class="text-[var(--accent-color)] hover:underline">Suryabx, Abishek Raj PR</a></p>
     </footer>
 
+    <button id="backToTopBtn" class="fixed bottom-8 right-8 bg-[var(--accent-color)] text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 z-50">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // JavaScript for mobile menu toggle
+        window.addEventListener('load', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+        });
+        
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Theme toggle logic
         const themeToggle = document.getElementById('theme-toggle');
         const themeToggleMobile = document.getElementById('theme-toggle-mobile');
         const themeIcon = document.getElementById('theme-icon');
         const themeIconMobile = document.getElementById('theme-icon-mobile');
         const body = document.body;
 
-        // Function to set theme
         function setTheme(theme) {
             body.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
@@ -240,8 +257,6 @@
                 themeIconMobile.classList.add('fa-sun');
             }
         }
-
-        // Initialize theme based on local storage or system preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setTheme(savedTheme);
@@ -251,7 +266,6 @@
             setTheme('dark');
         }
 
-        // Event listeners for theme toggles
         themeToggle.addEventListener('click', () => {
             const currentTheme = body.getAttribute('data-theme');
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
@@ -261,9 +275,24 @@
             const currentTheme = body.getAttribute('data-theme');
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
+
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.opacity = '1';
+            } else {
+                backToTopBtn.style.opacity = '0';
+            }
+        };
+
+        backToTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
     </script>
 </body>
 </html>
+
 
 
 
