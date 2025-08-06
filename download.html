@@ -7,25 +7,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Updated font to Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
+        /* Define CSS variables for light and dark themes */
         :root {
             --primary-bg-light: #f8f9fa;
             --secondary-bg-light: #e9ecef;
             --card-bg-light: #ffffff;
             --text-color-light: #212529;
-            --accent-color-light: #495057;
-            --light-accent-light: #2c3034;
+            --accent-color-light: #495057; /* Darker accent for light mode */
+            --light-accent-light: #2c3034; /* Even darker for headings in light mode */
 
             --primary-bg-dark: #212529;
             --secondary-bg-dark: #2c3034;
             --card-bg-dark: #343a40;
             --text-color-dark: #e9ecef;
-            --accent-color-dark: #6c757d;
-            --light-accent-dark: #f8f9fa;
+            --accent-color-dark: #6c757d; /* Lighter accent for dark mode */
+            --light-accent-dark: #f8f9fa; /* Even lighter for headings in dark mode */
 
+            /* Default to dark theme variables */
             --primary-bg: var(--primary-bg-dark);
             --secondary-bg: var(--secondary-bg-dark);
             --card-bg: var(--card-bg-dark);
@@ -34,6 +36,7 @@
             --light-accent: var(--light-accent-dark);
         }
 
+        /* Apply light theme variables when data-theme is 'light' */
         [data-theme="light"] {
             --primary-bg: var(--primary-bg-light);
             --secondary-bg: var(--secondary-bg-light);
@@ -43,7 +46,7 @@
             --light-accent: var(--light-accent-light);
         }
 
-        /* Changed font-family to Roboto */
+        /* Base body styles */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--primary-bg);
@@ -62,8 +65,25 @@
         }
 
         /* Header Navigation Hover Effect */
-        .nav-link:hover {
-            color: var(--accent-color);
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px; /* Space for the underline */
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         /* Download Button Animation */
@@ -72,12 +92,13 @@
             z-index: 1;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
         
         .download-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background-color: var(--light-accent); /* Change background on hover */
         }
 
         .download-button::before {
@@ -104,26 +125,19 @@
             cursor: not-allowed;
             opacity: 0.5;
             filter: grayscale(100%);
-            pointer-events: none;
+            pointer-events: none; /* Disable click events */
+            background-color: var(--card-bg) !important; /* Override background */
+            color: var(--text-color) !important; /* Override text color */
         }
 
         /* Header glowing effect on hover/focus */
         header {
-            transition: box-shadow 0.3s ease-in-out;
+            transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
         }
 
         header:hover,
         header:focus-within {
-            box-shadow: 0 0 20px 5px rgba(108, 117, 125, 0.7); /* Adjust color and spread as needed */
-        }
-
-        /* Glowing effect for navigation links and buttons text on hover/focus */
-        .nav-link:hover,
-        .nav-link:focus,
-        .download-button:hover,
-        .download-button:focus {
-            text-shadow: 0 0 8px var(--accent-color); /* Subtle glow */
-            transition: text-shadow 0.3s ease-in-out;
+            box-shadow: 0 0 25px 8px rgba(108, 117, 125, 0.7); /* More pronounced glow */
         }
     </style>
 </head>
@@ -250,4 +264,5 @@
     </script>
 </body>
 </html>
+
 
